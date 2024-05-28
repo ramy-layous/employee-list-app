@@ -26,5 +26,5 @@ export default {
 </script>
 
 <style scoped>
-@import "@/Styles/EmployeeCard.css";
+@import "@/styles/EmployeeCard.css";
 </style>

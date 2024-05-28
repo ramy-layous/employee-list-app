@@ -1,5 +1,5 @@
 <template>
-  <div class="container">
+  <div class="main-container">
     <h1>Our Employees</h1>
     <EmployeeList />
   </div>
@@ -11,11 +11,11 @@ import EmployeeList from '@/components/EmployeeList.vue';
 export default {
   name: 'App',
   components: {
-    EmployeeList
-  }
+    EmployeeList,
+  },
 };
 </script>
 
 <style scoped>
-@import '@/assets/css/index.css';
+@import './styles/App.css';
 </style>

@@ -1,19 +1,23 @@
 <template>
   <div>
-    <ul>
-      <li v-for="employee in employees" :key="employee.id">
-        <img :src="employee.avatar" alt="Profile Picture" class="profile-pic" />
-        <span>{{ employee.first_name }} {{ employee.last_name }}</span>
-        <a :href="'mailto:' + employee.email">Contact</a>
-      </li>
-    </ul>
+    <div class="list-container">
+      <EmployeeCard
+        v-for="employee in employees"
+        :key="employee.id"
+        :employee="employee"
+      />
+    </div>
   </div>
 </template>
 
 <script>
-import axios from 'axios';
+import axios from "axios";
+import EmployeeCard from "./EmployeeCard.vue";
 
 export default {
+  components: {
+    EmployeeCard,
+  },
   data() {
     return {
       employees: [],
@@ -25,10 +29,10 @@ export default {
   methods: {
     async fetchEmployees() {
       try {
-        const response = await axios.get('https://reqres.in/api/users');
+        const response = await axios.get("https://reqres.in/api/users");
         this.employees = response.data.data;
       } catch (error) {
-        console.error('Error fetching employees:', error);
+        console.error("Error fetching employees:", error);
       }
     },
   },
@@ -36,9 +40,5 @@ export default {
 </script>
 
 <style scoped>
-.profile-pic {
-  border-radius: 50%;
-  width: 50px;
-  height: 50px;
-}
+@import '@/styles/EmployeeList.css';
 </style>
